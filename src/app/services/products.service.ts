@@ -6,8 +6,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class ProductsService {
-  private productsUrl: string = 'bj/products.json';
-  private reviewUrl: string = 'bj/reviews.json';
+  private productsUrl: string = 'https://frostbite-assets.vercel.app/api/products';
+  private reviewUrl: string = 'https://frostbite-assets.vercel.app/api/reviews/0_hd';
 
   private http = inject(HttpClient);
 
