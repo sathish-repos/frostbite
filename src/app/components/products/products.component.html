@@ -1,36 +1,30 @@
 <div class="container-fluid">
   <div class="row justify-content-center">
-    <div
-      *ngFor="let product of products"
-      class="col-12 col-sm-6 col-lg-4 d-flex justify-content-center mb-4"
-    >
-      <div class="card" style="width: 100%; max-width: 350px;">
-        <!-- Optional image -->
-        <img [src]="'bj/images/' + product.key + '.png'" class="card-img-top" alt="{{ product.name }}" />
-
+    @if(products){ @for(product of products; track $index){
+    <div class="col-12 col-sm-6 col-lg-4 d-flex justify-content-center mb-4">
+      <div class="card" style="width: 100%; max-width: 350px">
+        <img
+          [src]="'bj/images/' + product.key + '.png'"
+          class="card-img-top"
+          alt="{{ product.name }}"
+        />
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">{{ product.name }}</h5>
           <h6 class="card-subtitle mb-2 text-muted">{{ product.subhead }}</h6>
-
-          <!-- <details class="mb-2">
-            <summary class="fw-bold">Description</summary>
-            <p class="small mt-2">{{ product.description }}</p>
-          </details> -->
-
           <div class="mb-2">
             <span class="fw-bold">Rating:</span>
             <span>{{ product.rating }} / 5</span>
-            <small class="text-muted">({{ product.rating_count }} reviews)</small>
+            <small class="text-muted"
+              >({{ product.rating_count }} reviews)</small
+            >
           </div>
-
-          <!-- <details class="mb-2">
-            <summary class="fw-bold">Ingredients</summary>
-            <p class="small mt-2">{{ product.ingredients }}</p>
-          </details> -->
-
-          <button class="btn btn-outline-primary mt-auto">Explore Flavor</button>
+          <a class="mb-1" href="">Know more</a>
+          <button class="btn btn-outline-primary mt-auto">
+            Explore Flavor
+          </button>
         </div>
       </div>
     </div>
+    } }
   </div>
 </div>

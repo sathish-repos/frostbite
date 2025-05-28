@@ -6,7 +6,7 @@ import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-products',
-  imports: [NgFor],
+  imports: [],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss',
 })
