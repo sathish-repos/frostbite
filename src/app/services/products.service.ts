@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { Product, Review } from '../models/products.model';
+import { Product, Products, Review } from '../models/products.model';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -12,10 +12,10 @@ export class ProductsService {
   private http = inject(HttpClient);
 
   public getProducts(
-    success: (products: Product[]) => void,
+    success: (products: Products) => void,
     error: (err: any) => void
   ): void {
-    this.http.get<Product[]>(this.productsUrl).subscribe({
+    this.http.get<Products>(this.productsUrl).subscribe({
       next: success,
       error: error,
     });

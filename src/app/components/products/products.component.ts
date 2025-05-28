@@ -18,7 +18,7 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
     this.productsService.getProducts(
       (success) => {
-        this.products = success;
+        this.products = success.products;
       },
       (error) => {
         console.log('something went wrong! ', error);
