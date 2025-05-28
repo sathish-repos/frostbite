@@ -1,1 +1,19 @@
 <p>products works!</p>
+@if (products) {
+    @for (product of products; track $index) {
+        <img src="bj/images/{{product.key}}.png" alt="bj/images/{{product.key}}.png">
+        <br>
+        name: {{product.name}}
+        <br>
+        subhead: {{product.subhead}}
+        <br>
+        rating: {{product.rating}}
+        <br>
+        rating_count: {{product.rating_count}}
+        <br>
+        description: {{product.description}}
+        <br>
+        ingredients: {{product.ingredients}}
+        <br>
+    }
+}

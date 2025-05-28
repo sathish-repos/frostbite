@@ -1,11 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+
+import { Product } from '../../models/products.model';
+import { ProductsService } from '../../services/products.service';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-products',
-  imports: [],
+  imports: [JsonPipe],
   templateUrl: './products.component.html',
-  styleUrl: './products.component.scss'
+  styleUrl: './products.component.scss',
 })
-export class ProductsComponent {
+export class ProductsComponent implements OnInit {
+  private productsService = inject(ProductsService);
 
+  products: Product[] = [];
+
+  ngOnInit(): void {
+    this.productsService.getProducts(
+      (success) => {
+        this.products = success;
+      },
+      (error) => {
+        console.log('something went wrong! ', error);
+      }
+    );
+  }
 }
