@@ -2,10 +2,11 @@ import { Component, inject, OnInit } from '@angular/core';
 
 import { Product } from '../../models/products.model';
 import { ProductsService } from '../../services/products.service';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-products',
-  imports: [],
+  imports: [NgFor],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss',
 })
