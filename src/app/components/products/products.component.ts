@@ -4,6 +4,7 @@ import { NgOptimizedImage } from '@angular/common';
 import { environment } from '../../../environments/environment';
 import { Product } from '../../models/products.model';
 import { ProductsService } from '../../services/products.service';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-products',
@@ -13,6 +14,7 @@ import { ProductsService } from '../../services/products.service';
 })
 export class ProductsComponent implements OnInit {
   private productsService = inject(ProductsService);
+  private cartService = inject(CartService);
 
   products: Product[] = [];
   environment = environment;
@@ -26,5 +28,9 @@ export class ProductsComponent implements OnInit {
         console.log('something went wrong! ', error);
       }
     );
+  }
+
+  addToCart(item: Product) {
+    this.cartService.addToCart(item);
   }
 }

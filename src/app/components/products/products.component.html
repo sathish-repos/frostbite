@@ -28,8 +28,11 @@
           </div>
           <p><strong>Price:</strong> ₹{{ product.price }}</p>
           <a class="mb-1" href="#">Know more</a>
-          <button class="btn btn-outline-primary mt-auto">
-            Explore Flavor
+          <button
+            class="btn btn-outline-primary mt-auto"
+            (click)="addToCart(product)"
+          >
+            Add to Cart
           </button>
         </div>
       </div>
