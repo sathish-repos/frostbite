@@ -1,12 +1,13 @@
 import { Component, inject, OnInit } from '@angular/core';
+import { NgOptimizedImage } from '@angular/common';
 
+import { environment } from '../../../environments/environment';
 import { Product } from '../../models/products.model';
 import { ProductsService } from '../../services/products.service';
-import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-products',
-  imports: [],
+  imports: [NgOptimizedImage],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss',
 })
@@ -14,6 +15,7 @@ export class ProductsComponent implements OnInit {
   private productsService = inject(ProductsService);
 
   products: Product[] = [];
+  environment = environment;
 
   ngOnInit(): void {
     this.productsService.getProducts(

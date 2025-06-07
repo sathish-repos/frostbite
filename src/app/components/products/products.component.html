@@ -2,23 +2,32 @@
   <div class="row justify-content-center">
     @if(products){ @for(product of products; track $index){
     <div class="col-12 col-sm-6 col-lg-4 d-flex justify-content-center mb-4">
-      <div class="card" style="width: 100%; max-width: 350px">
-        <img
-          src="https://frostbite-assets.vercel.app/ice-creams/images/{{product.key}}.png"
-          class="card-img-top"
-          alt="{{ product.name }}"
-        />
-        <div class="card-body d-flex flex-column">
+      <div class="card w-100" style="max-width: 350px">
+        <!-- Square Image -->
+        <div class="square-img-container">
+          <img
+            [ngSrc]="
+              environment.apiUrl + '/ice-creams/images/' + product.key + '.png'
+            "
+            width="400"
+            height="400"
+            alt="{{ product.name }}"
+            class="img-fluid"
+          />
+        </div>
+
+        <!-- Card Body -->
+        <div class="card-body d-flex flex-column text-center">
           <h5 class="card-title">{{ product.name }}</h5>
           <h6 class="card-subtitle mb-2 text-muted">{{ product.subhead }}</h6>
           <div class="mb-2">
             <span class="fw-bold">Rating:</span>
             <span>{{ product.rating }} / 5</span>
-            <small class="text-muted"
-              >({{ product.rating_count }} reviews)</small
-            >
+            <small class="text-muted">
+              ({{ product.rating_count }} reviews)
+            </small>
           </div>
-          <a class="mb-1" href="">Know more</a>
+          <a class="mb-1" href="#">Know more</a>
           <button class="btn btn-outline-primary mt-auto">
             Explore Flavor
           </button>
