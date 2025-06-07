@@ -5,11 +5,11 @@ export interface Products {
 export interface Product {
   key: string;
   name: string;
-  subhead: string;
   description: string;
   rating: number;
   rating_count: number;
   ingredients: string;
+  price: number;
 }
 
 export interface Review {

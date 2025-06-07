@@ -1,1 +1,29 @@
-<p>cart works!</p>
+<div class="container py-4">
+  <h2 class="text-choco mb-4">🛒 Your Cart</h2>
+
+  @if (cartItems.length > 0) {
+  <ul class="cart-list">
+    @for (product of cartItems; track $index; let i = $index) {
+    <li class="cart-item">
+      <img
+        [src]="
+          environment.apiUrl + '/ice-creams/images/' + product.key + '.png'
+        "
+        alt="{{ product.name }}"
+      />
+      <div class="info">
+        <h5>{{ product.name }}</h5>
+        <p class="rating">
+          ⭐ {{ product.rating }} ({{ product.rating_count }} reviews)
+        </p>
+      </div>
+      <button class="remove-btn" (click)="removeFromCart(i)">Remove</button>
+    </li>
+    }
+  </ul>
+  }@else {
+  <div class="alert alert-info text-center">
+    Your cart is empty! Add some sweet treats 🍦
+  </div>
+  }
+</div>
