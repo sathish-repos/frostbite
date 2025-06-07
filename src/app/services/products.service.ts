@@ -1,13 +1,15 @@
 import { inject, Injectable } from '@angular/core';
-import { Product, Products, Review } from '../models/products.model';
 import { HttpClient } from '@angular/common/http';
+
+import { environment } from '../../environments/environment';
+import { Product, Products, Review } from '../models/products.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductsService {
-  private productsUrl: string = 'https://frostbite-assets.vercel.app/api/products';
-  private reviewUrl: string = 'https://frostbite-assets.vercel.app/api/reviews/0_hd';
+  private productsUrl: string = environment.apiUrl + '/api/products';
+  private reviewUrl: string = environment.apiUrl + '/api/reviews/0_hd';
 
   private http = inject(HttpClient);
 
