@@ -8,7 +8,11 @@ import { CartItem, CartService } from '../../services/cart.service';
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss',
 })
-export class CartComponent {
+export class CartComponent implements OnInit {
+  ngOnInit() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
   environment = environment;
   cartService = inject(CartService);
 

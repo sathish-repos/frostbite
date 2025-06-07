@@ -20,6 +20,7 @@ export class ProductsComponent implements OnInit {
   environment = environment;
 
   ngOnInit(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     this.productsService.getProducts(
       (success) => {
         this.products = success.products;
