@@ -59,19 +59,14 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmation</h1>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          🎉 Congratulations! 🎉
+        </h1>
       </div>
       <div class="modal-body">
-        <p>
-          Are you sure you want to proceed with the checkout? Your order will be
-          placed with the current items in your cart.
-        </p>
+        <div class="congrats-msg">
+          <p>You bought it!</p>
+        </div>
         <p>
           Total Items: <strong>{{ totalItems() }}</strong>
         </p>
@@ -80,16 +75,13 @@
         </p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Close
-        </button>
         <button
           type="button"
-          class="btn btn-primary"
+          class="btn btn-secondary"
           data-bs-dismiss="modal"
-          (click)="onBuyNow()"
+          (click)="clearCart()"
         >
-          Buy Now
+          Close
         </button>
       </div>
     </div>
