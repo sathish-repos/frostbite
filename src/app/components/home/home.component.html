@@ -251,7 +251,7 @@
     <h3 class="text-center text-choco mb-4">Contact Us</h3>
     <div class="row justify-content-center">
       <div class="col-md-6">
-        <form>
+        <form #contact="ngForm">
           <div class="mb-3">
             <label for="name" class="form-label">Your Name</label>
             <input
@@ -259,6 +259,10 @@
               id="name"
               class="form-control"
               placeholder="Enter your name"
+              required
+              ngModel
+              name="name"
+              minlength="3"
             />
           </div>
           <div class="mb-3">
@@ -268,6 +272,9 @@
               id="email"
               class="form-control"
               placeholder="Enter your email"
+              required
+              ngModel
+              name="email"
             />
           </div>
           <div class="mb-3">
@@ -277,9 +284,18 @@
               class="form-control"
               rows="3"
               placeholder="How can we help?"
+              required
+              ngModel
+              name="message"
             ></textarea>
           </div>
-          <button type="submit" class="btn btn-primary">Send Message</button>
+          <button
+            [disabled]="!contact.valid"
+            class="btn btn-primary"
+            (click)="showToast(); contact.resetForm()"
+          >
+            Send Message
+          </button>
         </form>
         <div class="mt-4 text-center">
           <p class="mb-1"><strong>Email:</strong> hello{{`@`}}frostbite.com</p>
@@ -290,3 +306,15 @@
     </div>
   </div>
 </section>
+
+<div class="toast-container position-fixed top-0 end-0 p-3 pt-5">
+  <div
+    #toastE2
+    class="toast bg-success text-white"
+    role="alert"
+    aria-live="assertive"
+    aria-atomic="true"
+  >
+    <div class="toast-body">we'll contact you within 2 working days!</div>
+  </div>
+</div>

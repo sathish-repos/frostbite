@@ -1,10 +1,18 @@
-import { Component, inject, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  inject,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 
 import { environment } from '../../../environments/environment';
 import { Product } from '../../models/products.model';
 import { ProductsService } from '../../services/products.service';
 import { CartService } from '../../services/cart.service';
+
+declare var bootstrap: any;
 
 @Component({
   selector: 'app-products',
@@ -15,9 +23,11 @@ import { CartService } from '../../services/cart.service';
 export class ProductsComponent implements OnInit {
   private productsService = inject(ProductsService);
   private cartService = inject(CartService);
-
-  products: Product[] = [];
   environment = environment;
+
+  @ViewChild('toastEl', { static: true }) toastElement!: ElementRef;
+  toastMessage: string = 'added to cart successfully!';
+  products: Product[] = [];
 
   ngOnInit(): void {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -33,5 +43,11 @@ export class ProductsComponent implements OnInit {
 
   addToCart(item: Product) {
     this.cartService.addToCart(item);
+    this.showToast();
+  }
+
+  showToast() {
+    const toast = new bootstrap.Toast(this.toastElement.nativeElement);
+    toast.show();
   }
 }

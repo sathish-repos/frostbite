@@ -27,7 +27,7 @@
             </small>
           </div>
           <span class="fw-bold">Price: ₹{{ product.price }}</span>
-          <a class="mb-1" href="#">Know more</a>
+          <!-- <a class="mb-1" href="#">Know more</a> -->
           <button
             class="btn btn-outline-primary mt-auto"
             (click)="addToCart(product)"
@@ -38,5 +38,17 @@
       </div>
     </div>
     } }
+  </div>
+</div>
+
+<div class="toast-container position-fixed top-0 end-0 p-3 pt-5">
+  <div
+    #toastEl
+    class="toast bg-success text-white"
+    role="alert"
+    aria-live="assertive"
+    aria-atomic="true"
+  >
+    <div class="toast-body">{{ toastMessage }}</div>
   </div>
 </div>
