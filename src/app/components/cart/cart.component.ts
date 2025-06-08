@@ -28,8 +28,5 @@ export class CartComponent implements OnInit {
     this.cartService.clearCart();
   }
 
-  checkout() {
-    // Implement checkout logic here
-    console.log('Checkout process initiated');
-  }
+  onBuyNow() {}
 }
